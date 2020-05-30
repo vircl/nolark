@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  font-family: $font-family-sans-serif;
+  font-size: $font-size-base;
+}
+.container,
+.container-fluid,
+[class*='col-'] {
+  padding: 0;
+}
+
+.row {
+  margin : 0 !important;
+}
+
+.visible {
+  visibility: visible !important;
+}
+
+.block-container {
+  padding: $padding;
+  h2 {
+    @include font-size(2.5rem);
+  }
+  p {
+    margin: 15px 0;
+  }
+}
+
+.bg-image-left,
+.bg-image-right {
+  @media screen and (max-width: 991px) {
+    padding-top: $padding;
+  }
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+.bg-image-left {
+  @media screen and (min-width: 992px) {
+    padding-right: $padding;
+  }
+
+}
+.bg-image-right {
+  @media screen and (min-width: 992px) {
+    padding-left: $padding;
+  }
+}
+
+
+.reverse-responsive {
+  @media screen and (max-width: 991px ) {
+    flex-direction: column-reverse !important;
+  }
+}
+
+
+#header-site {
+  background-color: $bg-gray;
+  min-height: calc( 100vh - #{$navbar-height} );
+  background-image: url( '../images/header.jpg' );
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  margin-top: $navbar-height;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .block-title {
+    text-align: center;
+    color: $white !important;
+    h1 {
+      @include font-size(3rem);
+    }
+    h2 {
+      @include font-size(2.5rem);
+      font-weight: 200;
+      font-variant: all-small-caps;
+    }
+  }
+}
+
+#cta {
+  background: url("../images/header-1.jpg");
+  background-size: cover;
+  background-attachment: scroll;
+  min-height: 30vh;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .container {
+    text-align: center;
+  }
+  h2 {
+    @include font-size(1.5rem);
+    font-weight:200;
+    padding-bottom: 20px;
+  }
+}
+
+#categories-populaires {
+  text-align: center;
+  .categorie {
+    transition: border ease-in-out 0.8s;
+    border: 1px dotted $white;
+    padding: $padding;
+    text-align: center;
+  }
+  .categorie-hover {
+    transition: border ease-in-out 0.8s;
+    border: 1px dotted $gray-900;
+    h4 {
+      color: $primary;
+    }
+    cursor: pointer;
+  }
+  .block-title {
+    padding-bottom: $padding;
+  }
+  h3 {
+    font-variant: all-small-caps;
+    font-weight: 200;
+    @include font-size(2rem);
+  }
+  h4 {
+    @include font-size(1.8rem);
+    font-variant: all-small-caps;
+  }
+}
+
+#footer-site {
+  min-height: calc( 100vh - #{$navbar-height});
+  padding: $padding;
+  background-color: $black;
+  color: $white;
+  text-align: center;
+}

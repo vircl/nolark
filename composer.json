@@ -1,0 +1,16 @@
+{
+  "name": "vircl/nolark",
+  "description": "Site internet de la boutique de casques Nolark (projet fictif)",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "vircl",
+      "email": "dev@virginieclaude.fr"
+    }
+  ],
+  "require": {
+    "twbs/bootstrap": "^4.5",
+    "twig/twig": "^3.0"
+  }
+}
