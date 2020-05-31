@@ -76,7 +76,7 @@
 .submenu {
   // Comportement sur petits écrans (toujours affiché)
   @media screen and (max-width: 991px ) {
-    visibilty: visible !important;
+    visibility: visible !important;
   }
   // Comportement sur écran large, affiché au clic
   @media screen and (min-width: 992px) {
@@ -113,13 +113,13 @@
   font-variant: all-small-caps;
   @include font-size(1.3rem);
   a {
-    color : $white !important;
+    color : $gray-500 !important;
     text-decoration: none;
   }
 }
 
 .menu-item-active {
   a {
-    color: $primary !important;
+    color: $white !important;
   }
 }

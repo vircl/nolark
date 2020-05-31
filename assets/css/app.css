@@ -1,5 +1,9 @@
 /* WordPlate */
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;800&display=swap");
+.bg-gray {
+  background: #e9ecef;
+}
+
 /*!
  * Bootstrap Grid v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
@@ -4226,6 +4230,26 @@ html {
     margin-left: auto !important;
   }
 }
+.classement00 {
+  object-position: 0 0;
+}
+
+.classement10 {
+  object-position: 0 -18px;
+}
+
+.classement20 {
+  object-position: 0 -36px;
+}
+
+.classement30 {
+  object-position: 0 -54px;
+}
+
+.classement40 {
+  object-position: 0 -72px;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -4298,7 +4322,7 @@ html {
 
 @media screen and (max-width: 991px) {
   .submenu {
-    visibilty: visible !important;
+    visibility: visible !important;
   }
 }
 @media screen and (min-width: 992px) {
@@ -4342,12 +4366,12 @@ html {
   }
 }
 .menu-item a {
-  color: #FFF !important;
+  color: #adb5bd !important;
   text-decoration: none;
 }
 
 .menu-item-active a {
-  color: #f5871c !important;
+  color: #FFF !important;
 }
 
 .btn {
@@ -4375,6 +4399,14 @@ html {
 html, body {
   font-family: "Source Sans Pro", sans-serif;
   font-size: 1rem;
+}
+
+a {
+  color: #495057;
+  text-decoration: none;
+}
+a:hover {
+  color: #f5871c;
 }
 
 .container,
@@ -4410,32 +4442,27 @@ html, body {
   margin: 15px 0;
 }
 
-.bg-image-left,
-.bg-image-right {
+.bg-image {
   overflow: hidden;
 }
-@media screen and (max-width: 991px) {
-  .bg-image-left,
-.bg-image-right {
-    padding-top: 40px;
-  }
-}
-.bg-image-left img,
-.bg-image-right img {
+.bg-image img {
   width: 100%;
   height: auto;
 }
 
-@media screen and (min-width: 992px) {
-  .bg-image-left {
-    padding-right: 40px;
-  }
+.video-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
 }
 
-@media screen and (min-width: 992px) {
-  .bg-image-right {
-    padding-left: 40px;
-  }
+.video-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
 
 @media screen and (max-width: 991px) {
@@ -4551,6 +4578,65 @@ html, body {
   padding: 40px;
   background-color: #000000;
   color: #FFF;
+  text-align: center;
+}
+
+#casques .element {
+  border: 1px dotted #FFF;
+  text-align: center;
+  padding: 40px;
+}
+#casques .element p {
+  margin: 0;
+  padding: 0;
+}
+#casques .element:hover {
+  border: 1px dotted #e9ecef;
+  cursor: pointer;
+}
+#casques .infos {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#casques .infos span {
+  display: inline-block;
+}
+#casques .infos .prix {
+  font-weight: 600;
+  font-size: calc(1.325rem + 0.9vw);
+  margin-right: 40px;
+}
+@media (min-width: 1200px) {
+  #casques .infos .prix {
+    font-size: 2rem;
+  }
+}
+#casques .infos .puce {
+  padding: 5px 15px;
+  border-radius: 10px;
+}
+#casques .en-stock .puce {
+  background: #8de1c2;
+}
+#casques .epuise .puce {
+  background: #fd8888;
+  color: #FFF;
+}
+#casques .card-classement {
+  position: relative;
+  width: 100%;
+  height: 18px;
+  margin-top: 5px;
+}
+#casques .classement {
+  width: 85px;
+  height: 18px;
+  position: absolute;
+  bottom: 0;
+  object-fit: none;
+  left: calc( 50% - (85px / 2) );
   text-align: center;
 }
 

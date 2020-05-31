@@ -19,16 +19,16 @@
                 <div class="icon icon-bars-solid" id="burger"></div>
                 <div id="navbar-container" class="navbar-container">
                     <ul>
-                        <li class="menu-item"> <a href="?p=accueil">Accueil </a></li>
-                        <li class="menu-item menu-item-active"> <a href="#">Nos casques</a>
+                        <li class="menu-item {{ activeClass('accueil') }} {{ activeClass('home') }}"> <a href="?p=accueil">Accueil </a></li>
+                        <li class="menu-item {{ activeClass('casques') }}"> <a href="#">Nos casques</a>
                             <ul class="submenu">
-                                <li> <a href="?p=casques&t=route">Route </a></li>
-                                <li> <a href="?p=casques&t=cross">Cross </a></li>
-                                <li> <a href="?p=casques&t=piste">Piste </a></li>
-                                <li> <a href="?p=casques&t=enfants">Enfants </a></li>
+                                <li> <a href="?p=casques&t=4">Route </a></li>
+                                <li> <a href="?p=casques&t=1">Cross </a></li>
+                                <li> <a href="?p=casques&t=3">Piste </a></li>
+                                <li> <a href="?p=casques&t=2">Enfants </a></li>
                             </ul>
                         </li>
-                        <li class="menu-item"> <a href="?p=contact">Contact</a> </li>
+                        <li class="menu-item {{ activeClass('contact') }}"> <a href="?p=contact">Contact</a> </li>
                     </ul>
                 </div>
             </nav>
@@ -51,7 +51,7 @@
         <!-- Footer -->
         <footer id="footer-site">
             <div class="container">
-                <p>&copy Nolark - 2020</p>
+                <p>&copy; Nolark - 2020</p>
             </div>
         </footer>
     </body>

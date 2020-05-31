@@ -6,5 +6,72 @@
 
 {% block headertitle %}
     <h1>Nolark</h1>
-    <h2>Nos casques</h2>
+    <h2>Nos casques {{ options.type.libelle }}</h2>
 {% endblock %}
+
+{% block maincontent %}
+    {% if options.type.libelle == 'enfants' %}
+    <!-- Warning casques enfants -->
+        <section id="warning" class="block-container bg-gray">
+            <div class="block-content container">
+                <div class="row">
+                    <div class="col-12 col-lg-6">
+                        <h2>Petit rappel essentiel</h2>
+                        <p>
+                            On est tous d'accord pour dire que la sécurité est primordiale lorsqu'on roule à deux roues.
+                            Personne n'envisagerait de rouler sans casque !
+                        </p>
+
+                        <p>
+                            Et pourtant, certains omettent l'essentiel : <strong>Attacher son casque !</strong>
+                        </p>
+
+                        <p>
+                            C'est pourquoi Nolark vous présente cette vidéo conçue par
+                            <a href="http://scootxperience.com/"> ScootXperience </a> qui vous démontre que le fait d'attacher son casque peut tout changer...
+                        </p>
+
+                        <p>
+                            Rappelons l'essentiel à nos enfants et donnons-leur de bonnes habitudes.
+                        </p>
+
+                    </div>
+                    <div class="col-12 col-lg-6 pl-lg-5 pt-5 pt-lg-0">
+                        <div class="video-responsive">
+                                <iframe frameborder="0" width="640" height="360" src="https://www.dailymotion.com/embed/video/xdl390" allowfullscreen allow="autoplay"></iframe>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+    <!-- Liste des casques -->
+    <section id="casques" class="block-container">
+        <div class="block-content container">
+            <div class="row">
+                {%  for casque in options.casques %}
+                <div class="col-12 col-md-6 col-lg-4 element {{ casqueClass( casque.stock ) }}">
+                    <div class="card-img">
+                        <img src="../assets/images/casques/{{ options.type.libelle }}/{{ casque.image }}" alt="{{ casque.modele }}" />
+                    </div>
+                    <p class="infos">
+                        <span class="prix">{{  casque.prix }} € </span>
+                        <span class="puce">{{ casqueStock( casque.stock) }}</span>
+                    </p>
+
+                    <div class="card-title">
+                        <h3>{{ casque.marque }}</h3>
+                        <p>{{ casque.modele}}</p>
+                    </div>
+                    <div class="card-classement">
+                        <img class="classement {{ casqueClassement( casque.classement) }}" src="../assets/images/etoiles.gif" alt="Classement 1 sur 5">
+                    </div>
+
+                </div>
+                {%  endfor %}
+            </div>
+        </div>
+    </section>
+
+{%  endblock %}

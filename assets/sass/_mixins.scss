@@ -1,1 +1,14 @@
-
+// Génération des classes classement pour la notation des casques (sprite css)
+$i: 0;
+$decalage: 0;
+@while ( $i < 5 ) {
+  $j: 0;
+  @while ( $j < 5 ) {
+    .classement#{$i}#{$j} {
+      object-position: 0 $decalage;
+    }
+    $decalage: $decalage - 18px;
+    $j: $j + 5;
+  }
+  $i: $i+1;
+}

@@ -6,7 +6,13 @@
  * @project Nolark
  * @author  vircl
  */
-require( 'vendor/autoload.php');
+require_once( 'vendor/autoload.php');
+require_once( 'config.php');
+require_once( 'inc/class.pdonolark.php' );
+require_once( 'inc/class.twignolark.php' );
+
+
+$pdo = PDONolark::getPdoNolark();
 
 // Routing
 $page = filter_input(INPUT_GET, 'p', FILTER_SANITIZE_STRING);
@@ -17,8 +23,6 @@ if ( ! isset( $page ) ) {
 $options = [
     'header_height' => '50vh',
 ];
-
-$casques = [];
 
 switch( $page ) {
 case 'home' :
@@ -32,6 +36,8 @@ break;
 case 'casques' :
     $template = 'casque';
     $type = filter_input(INPUT_GET, 't', FILTER_SANITIZE_STRING);
+    $options['casques'] = $pdo->getCasques( $type );
+    $options['type'] = $pdo->getTypeLibelle( $type );
 break;
 default:
     header('HTTP/1.0 404 Not found');
@@ -45,9 +51,10 @@ if (isset($template)) {
     $twig = new \Twig\Environment($loader, [
         //'cache' => __DIR__ . '/cache',
     ]);
-
+    $twig->addGlobal( 'current_page', $page );
+    $twig->addExtension( new TwigNolark() );
     try {
-        echo $twig->render($template . '.twig', ['options' => $options, 'casques' => $casques ]);
+        echo $twig->render($template . '.twig', ['options' => $options ]);
     } catch (\Twig\Error\LoaderError $e) {
     } catch (\Twig\Error\RuntimeError $e) {
     } catch (\Twig\Error\SyntaxError $e) {
