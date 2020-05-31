@@ -45,6 +45,7 @@ case 'casques' :
 break;
 default:
     header('HTTP/1.0 404 Not found');
+    $options['header_height'] = '100vh';
     $template = '404';
 break;
 }
