@@ -41,5 +41,6 @@ html [type="button"] {
   &:hover {
     transition: background ease-in-out 0.8s;
     background: $secondary;
+    color: $white;
   }
 }

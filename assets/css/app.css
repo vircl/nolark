@@ -4321,6 +4321,12 @@ html {
     font-size: 2rem;
   }
 }
+.navbar .logo a {
+  color: #52f2fa;
+}
+.navbar .logo a:hover {
+  color: #FFF;
+}
 
 @media screen and (max-width: 991px) {
   #navbar-container {
@@ -4454,13 +4460,14 @@ html [type=button] {
 
 .btn-primary {
   transition: background ease-in-out 0.8s;
-  background: #f5871c;
+  background: #52f2fa;
   color: #FFF;
   font-variant: all-small-caps;
 }
 .btn-primary:hover {
   transition: background ease-in-out 0.8s;
-  background: #f51c59;
+  background: #55f2a4;
+  color: #FFF;
 }
 
 .form-group {
@@ -4506,7 +4513,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #f5871c;
+  color: #52f2fa;
 }
 
 .container,
@@ -4653,7 +4660,7 @@ a:hover {
   cursor: pointer;
 }
 #categories-populaires .categorie-hover h4 {
-  color: #f5871c;
+  color: #52f2fa;
 }
 #categories-populaires .block-title {
   padding-bottom: 40px;

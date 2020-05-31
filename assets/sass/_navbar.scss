@@ -17,6 +17,12 @@
 	.logo {
 		@include font-size(2rem);
 		font-variant: all-small-caps;
+		a {
+			color: $primary;
+			&:hover {
+				color: $white;
+			}
+		}
 	}
 }
 
