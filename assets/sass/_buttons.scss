@@ -1,7 +1,36 @@
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner,
+button::-moz-focus-inner {
+  padding: 0;
+  border-stye: none;
+}
+
+.btn:not(:disabled):not(.disabled) {
+  cursor: pointer;
+}
+
+[type="reset"],
+[type="submit"],
+button,
+html [type="button"] {
+  -webkit-appearance: button;
+}
+
 .btn {
   display: inline-block;
   text-decoration: none;
-  padding: 5px 15px;
+  text-aling: center;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  padding: .5rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .3rem;
+  border: 1px solid transparent;
 }
 
 .btn-primary {

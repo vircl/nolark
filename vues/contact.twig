@@ -1,7 +1,13 @@
 {% extends 'layout.twig' %}
-
+{% import 'formulaires.twig' as form %}
 {% block pagetitle %}
     <title>Nolark - Nous contacter</title>
+{% endblock %}
+
+{% block header_scripts %}
+    <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
+    <script src="../assets/js/map.js"></script>
 {% endblock %}
 
 {% block headertitle %}
@@ -9,3 +15,36 @@
     <h2>Nous contacter</h2>
 {% endblock %}
 
+{%  block maincontent %}
+    <!-- Formulaire de contact -->
+    <section id="content" class="block-container">
+        <div class="block-content container">
+            <h2>Envoyez-nous un message</h2>
+            <form name="contact" action="?p=contact" method="post">
+                <div class="row">
+                    {{ form.input('nom', 'Votre nom', nom, {class: "col-12 col-lg-6 pr-lg-3"}) }}
+                    {{ form.input('prenom', 'Votre prénom', prenom, {class: "col-12 col-lg-6 pl-lg-3"}) }}
+                </div>
+                <div class="row">
+                    {{ form.input('email', 'Votre email', email, {class: "col-12 col-lg-6 pr-lg-3", type: 'email'}) }}
+                    {{ form.input('tel', 'Votre n° de téléphone', telephone, {class: "col-12 col-lg-6 pl-lg-3"} ) }}
+                </div>
+                {{ form.lstCheckbox( 'Vos marques préférées', {options: options.marques }, 'chk_marques[]', 4 ) }}
+                {{ form.select('motif', 'Motif de votre demande', {options: options.motifs }, '') }}
+                {{ form.textarea('message', 'Votre message', message) }}
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+                <p>
+                    <strong>Ce site est fictif, votre message ne sera pas envoyé</strong>
+                </p>
+
+            </form>
+        </div>
+    </section>
+    <!-- Localisation -->
+    <section id="localisation" class="block-container bg-gray">
+        <div class="block-content container">
+            <h2>Où nous trouver ?</h2>
+            <div id="map" style="width: 100%; height: 530px;"></div>
+        </div>
+    </section>
+{% endblock %}

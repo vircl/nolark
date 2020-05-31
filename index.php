@@ -22,6 +22,9 @@ if ( ! isset( $page ) ) {
 
 $options = [
     'header_height' => '50vh',
+    'marques'       => $pdo->getMarques(),
+    'types'         => $pdo->getTypes(),
+    'motifs'        => $pdo->getMotifsContact(),
 ];
 
 switch( $page ) {
@@ -52,6 +55,7 @@ if (isset($template)) {
         //'cache' => __DIR__ . '/cache',
     ]);
     $twig->addGlobal( 'current_page', $page );
+    $twig->addGlobal( 'mapquest_key', MAPQUEST_KEY);
     $twig->addExtension( new TwigNolark() );
     try {
         echo $twig->render($template . '.twig', ['options' => $options ]);

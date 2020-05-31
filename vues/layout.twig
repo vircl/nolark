@@ -9,6 +9,8 @@
         <link rel="stylesheet" href="assets/icons/style.css">
         <script src="node_modules/jquery/dist/jquery.min.js"></script>
         <script src="assets/js/app.js"></script>
+        {%  block header_scripts  %}
+        {% endblock %}
     </head>
     <body>
         <!-- Entete du site -->
@@ -22,10 +24,9 @@
                         <li class="menu-item {{ activeClass('accueil') }} {{ activeClass('home') }}"> <a href="?p=accueil">Accueil </a></li>
                         <li class="menu-item {{ activeClass('casques') }}"> <a href="#">Nos casques</a>
                             <ul class="submenu">
-                                <li> <a href="?p=casques&t=4">Route </a></li>
-                                <li> <a href="?p=casques&t=1">Cross </a></li>
-                                <li> <a href="?p=casques&t=3">Piste </a></li>
-                                <li> <a href="?p=casques&t=2">Enfants </a></li>
+                                {%  for type in options.types %}
+                                    <li> <a href="?p=casques&t={{ type.id }}">{{ type.libelle }}</a></li>
+                                {% endfor %}
                             </ul>
                         </li>
                         <li class="menu-item {{ activeClass('contact') }}"> <a href="?p=contact">Contact</a> </li>
@@ -55,4 +56,6 @@
             </div>
         </footer>
     </body>
+    {%  block footer_scripts  %}
+    {% endblock %}
 </html>

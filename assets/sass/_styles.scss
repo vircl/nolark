@@ -2,6 +2,10 @@
 * {
   margin: 0;
   padding: 0;
+  &::after,
+  &::before {
+    box-sizing: border-box;
+  }
 }
 html, body {
   font-family: $font-family-sans-serif;
@@ -16,13 +20,13 @@ a {
   }
 }
 .container,
-.container-fluid,
-[class*='col-'] {
+.container-fluid /*,
+[class*='col-'] */{
   padding: 0;
 }
 
 .row {
-  margin : 0 !important;
+  //margin : 0 !important;
 }
 
 .visible {
@@ -67,7 +71,9 @@ a {
   }
 }
 
-
+.text-center {
+  text-align: center;
+}
 #header-site {
   background-color: $bg-gray;
   min-height: calc( var(--height) - #{$navbar-height} );

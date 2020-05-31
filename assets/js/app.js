@@ -6,7 +6,7 @@
  * @author  vircl
  */
 $(document).ready(function(){
-    console.log("Jquery ok");
+
     $( "#burger" ).click(function(event) {
         event.stopImmediatePropagation();
         console.log("clic sur burger");

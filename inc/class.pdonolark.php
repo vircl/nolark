@@ -95,4 +95,39 @@ class PDONolark {
         return $prepare->fetch();
     }
 
+    /**
+     * Retourne la liste des marques enregistrées dans la base de données
+     * @return  mixed liste de marques
+     */
+    public function getMarques() {
+        $prepare = PDONolark::$_pdo->prepare(
+            'SELECT `id` AS id, `nom` AS `libelle` FROM `nolark_marque`'
+        );
+        $prepare->execute();
+        return $prepare->fetchAll();
+    }
+
+    /**
+     * Retourne la liste des types de casque enregistrés dans la base de données
+     * @return mixed les types de casque (route, cross ...)
+     */
+    public function getTypes() {
+        $prepare = PDONolark::$_pdo->prepare(
+            'SELECT `id`AS id, `libelle` AS `libelle` FROM `nolark_type`'
+        );
+        $prepare->execute();
+        return $prepare->fetchAll();
+    }
+
+    /**
+     * Retourne la liste des motifs de contact enregistrée dans la base de données
+     * @return mixed
+     */
+    public function getMotifsContact() {
+        $prepare = PDONolark::$_pdo->prepare(
+            'SELECT `id`AS id, `libelle` AS `libelle` FROM `nolark_motif`'
+        );
+        $prepare->execute();
+        return $prepare->fetchAll();
+    }
 }
