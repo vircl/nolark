@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        {% block pagetitle %}
+        <title>Nolark - Open your minds !</title>
+        {% endblock %}
+        <link rel="stylesheet" href="assets/css/app.css">
+        <link rel="stylesheet" href="assets/icons/style.css">
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="assets/js/app.js"></script>
+    </head>
+    <body>
+        <!-- Entete du site -->
+        <header>
+            <!-- Navigation -->
+            <nav class="navbar">
+                <div class="logo">Nolark</div>
+                <div class="icon icon-bars-solid" id="burger"></div>
+                <div id="navbar-container" class="navbar-container">
+                    <ul>
+                        <li class="menu-item"> <a href="?p=accueil">Accueil </a></li>
+                        <li class="menu-item menu-item-active"> <a href="#">Nos casques</a>
+                            <ul class="submenu">
+                                <li> <a href="?p=casques&t=route">Route </a></li>
+                                <li> <a href="?p=casques&t=cross">Cross </a></li>
+                                <li> <a href="?p=casques&t=piste">Piste </a></li>
+                                <li> <a href="?p=casques&t=enfants">Enfants </a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item"> <a href="?p=contact">Contact</a> </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Contenu -->
+        <main>
+            <!-- header -->
+            <section id="header-site" style="--height:{{ options.header_height }};">
+                <div class="block-title">
+                    {% block headertitle %}
+                    <h1>Nolark</h1>
+                    <h2>Open your minds !</h2>
+                    {% endblock %}
+                </div>
+            </section>
+            {%  block maincontent %}
+                <!-- le contenu de la page ici -->
+            {% endblock %}
+        </main>
+        <!-- Footer -->
+        <footer id="footer-site">
+            <div class="container">
+                <p>&copy Nolark - 2020</p>
+            </div>
+        </footer>
+    </body>
+</html>

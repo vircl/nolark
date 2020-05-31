@@ -4446,7 +4446,7 @@ html, body {
 
 #header-site {
   background-color: #e9ecef;
-  min-height: calc( 100vh - 80px );
+  min-height: calc( var(--height) - 80px );
   background-image: url("../images/header.jpg");
   background-repeat: no-repeat;
   background-size: cover;
