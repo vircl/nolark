@@ -130,4 +130,25 @@ class PDONolark {
         $prepare->execute();
         return $prepare->fetchAll();
     }
+
+    /**
+     * Retourne les n types les plus populaires
+     * @param  int $limite nombre de catégories à retourner
+     * @return mixed les n catégories les plus populaires
+     */
+    public function getTypesFavoris( $limite ) {
+        $prepare = PDONolark::$_pdo->prepare(
+            ' SELECT c.type AS idType, '
+            . ' t.libelle AS libelle, '
+            . ' AVG(c.classement) AS moyenne '
+            . ' FROM `nolark_casque` AS c '
+            . ' JOIN `nolark_type` AS t ON t.id = c.type '
+            . ' GROUP BY c.type '
+            . ' ORDER BY moyenne DESC '
+            . ' LIMIT :uneLimite'
+        );
+        $prepare->bindParam( ':uneLimite', $limite, PDO::PARAM_INT );
+        $prepare->execute();
+        return $prepare->fetchAll();
+    }
 }

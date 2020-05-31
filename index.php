@@ -25,6 +25,7 @@ $options = [
     'marques'       => $pdo->getMarques(),
     'types'         => $pdo->getTypes(),
     'motifs'        => $pdo->getMotifsContact(),
+    'populaires'    => $pdo->getTypesFavoris(3),
 ];
 
 switch( $page ) {

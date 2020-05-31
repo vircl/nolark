@@ -45,7 +45,7 @@
     <section id="cta" class="block-container">
         <div class="block-content container">
             <h2>Une large gamme de casques pour tous les budgets !</h2>
-            <a href="#" class="btn btn-primary">Voir nos casques</a>
+            <a href="?p=contact" class="btn btn-primary">Plus d'infos</a>
         </div>
     </section>
     <!-- Catégories populaires -->
@@ -57,18 +57,12 @@
             </div>
 
             <div class="row">
-                <div class="col-12 col-lg-4 categorie">
-                    <img src="../assets/images/casques/route.jpg" alt="Image d'un casque représentant la catégorie route" />
-                    <h4>Route</h4>
-                </div>
-                <div class="col-12 col-lg-4 categorie">
-                    <img src="../assets/images/casques/cross.jpg" alt="Image d'un casque représentant la catégorie cross" />
-                    <h4>Cross</h4>
-                </div>
-                <div class="col-12 col-lg-4 categorie">
-                    <img src="../assets/images/casques/piste.jpg" alt="Image d'un casque représentant la catégorie piste" />
-                    <h4>Piste</h4>
-                </div>
+                {%  for type in options.populaires %}
+                    <div class="col-12 col-lg-4 categorie" data-link="?p=casques&t={{ type.idType }}">
+                        <img src="../assets/images/casques/{{ type.libelle }}.jpg" alt="Image d'un casque représentant la catégorie {{ type.libelle }}" />
+                        <h4>{{type.libelle | upper }}</h4>
+                    </div>
+                {%  endfor %}
             </div>
         </div>
     </section>
